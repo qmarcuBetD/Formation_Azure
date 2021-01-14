@@ -5,6 +5,9 @@
 			"referenceName": "CnxLocalFiles",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "Sources"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
