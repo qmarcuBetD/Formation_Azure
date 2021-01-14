@@ -8,12 +8,6 @@
 		"CnxLocalFiles_password": {
 			"value": ""
 		},
-		"CnxLocalFiles_properties_typeProperties_host": {
-			"value": "C:/Users/qmarcu/Documents/Ecole de la Data/Exercices/Azure/Covid"
-		},
-		"CnxLocalFiles_properties_typeProperties_userId": {
-			"value": "BETD\\qmarcu"
-		},
 		"CnxDatalake_properties_typeProperties_dataLakeStoreUri": {
 			"value": "https://formationazureqma.azuredatalakestore.net/webhdfs/v1"
 		},
@@ -25,6 +19,12 @@
 		},
 		"CnxDatalake_properties_typeProperties_resourceGroupName": {
 			"value": "rg-BDU_EcoleDeLaData"
+		},
+		"CnxLocalFiles_properties_typeProperties_host": {
+			"value": "C:/Users/qmarcu/Documents/Ecole de la Data/Exercices/Azure/Covid"
+		},
+		"CnxLocalFiles_properties_typeProperties_userId": {
+			"value": "BETD\\qmarcu"
 		},
 		"containerUri": {
 			"value": ""

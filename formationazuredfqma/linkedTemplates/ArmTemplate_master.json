@@ -11,14 +11,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'CnxLocalFiles'"
 		},
-		"CnxLocalFiles_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "C:/Users/qmarcu/Documents/Ecole de la Data/Exercices/Azure/Covid"
-		},
-		"CnxLocalFiles_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "BETD\\qmarcu"
-		},
 		"CnxDatalake_properties_typeProperties_dataLakeStoreUri": {
 			"type": "string",
 			"defaultValue": "https://formationazureqma.azuredatalakestore.net/webhdfs/v1"
@@ -34,6 +26,14 @@
 		"CnxDatalake_properties_typeProperties_resourceGroupName": {
 			"type": "string",
 			"defaultValue": "rg-BDU_EcoleDeLaData"
+		},
+		"CnxLocalFiles_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:/Users/qmarcu/Documents/Ecole de la Data/Exercices/Azure/Covid"
+		},
+		"CnxLocalFiles_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "BETD\\qmarcu"
 		},
 		"containerUri": {
 			"type": "string",
@@ -86,6 +86,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "formationazuredfqma_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'formationazuredfqma_ArmTemplate_0')]"
+			]
 		}
 	]
 }
