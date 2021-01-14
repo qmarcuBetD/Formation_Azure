@@ -1,0 +1,39 @@
+{
+	"name": "SrcCountryMeasures",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CnxLocalFiles",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "Country Measures.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Country",
+				"type": "String"
+			},
+			{
+				"name": "Response_measure",
+				"type": "String"
+			},
+			{
+				"name": "date_start",
+				"type": "String"
+			},
+			{
+				"name": "date_end",
+				"type": "String"
+			}
+		]
+	}
+}
