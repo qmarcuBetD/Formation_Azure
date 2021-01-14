@@ -1,0 +1,94 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "formationazuredfqma"
+		},
+		"CnxLocalFiles_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'CnxLocalFiles'"
+		},
+		"CnxDatalake_properties_typeProperties_dataLakeStoreUri": {
+			"type": "string",
+			"defaultValue": "https://formationazureqma.azuredatalakestore.net/webhdfs/v1"
+		},
+		"CnxDatalake_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "544fe47f-5772-488f-81a9-fa9de607ecfa"
+		},
+		"CnxDatalake_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "32ad602f-d364-45c5-ab7f-b8e199af2da0"
+		},
+		"CnxDatalake_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "rg-BDU_EcoleDeLaData"
+		},
+		"CnxLocalFiles_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:/Users/qmarcu/Documents/Ecole de la Data/Exercices/Azure/Covid"
+		},
+		"CnxLocalFiles_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "BETD\\qmarcu"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/MyLocalFiles')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CnxDatalake')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDataLakeStore",
+				"typeProperties": {
+					"dataLakeStoreUri": "[parameters('CnxDatalake_properties_typeProperties_dataLakeStoreUri')]",
+					"tenant": "[parameters('CnxDatalake_properties_typeProperties_tenant')]",
+					"subscriptionId": "[parameters('CnxDatalake_properties_typeProperties_subscriptionId')]",
+					"resourceGroupName": "[parameters('CnxDatalake_properties_typeProperties_resourceGroupName')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CnxLocalFiles')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "FileServer",
+				"typeProperties": {
+					"host": "[parameters('CnxLocalFiles_properties_typeProperties_host')]",
+					"userId": "[parameters('CnxLocalFiles_properties_typeProperties_userId')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('CnxLocalFiles_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "MyLocalFiles",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/MyLocalFiles')]"
+			]
+		}
+	]
+}

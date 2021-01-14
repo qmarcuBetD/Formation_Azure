@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "formationazuredfqma"
+		},
+		"CnxLocalFiles_password": {
+			"value": ""
+		},
+		"CnxLocalFiles_properties_typeProperties_host": {
+			"value": "C:/Users/qmarcu/Documents/Ecole de la Data/Exercices/Azure/Covid"
+		},
+		"CnxLocalFiles_properties_typeProperties_userId": {
+			"value": "BETD\\qmarcu"
+		},
+		"CnxDatalake_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://formationazureqma.azuredatalakestore.net/webhdfs/v1"
+		},
+		"CnxDatalake_properties_typeProperties_tenant": {
+			"value": "544fe47f-5772-488f-81a9-fa9de607ecfa"
+		},
+		"CnxDatalake_properties_typeProperties_subscriptionId": {
+			"value": "32ad602f-d364-45c5-ab7f-b8e199af2da0"
+		},
+		"CnxDatalake_properties_typeProperties_resourceGroupName": {
+			"value": "rg-BDU_EcoleDeLaData"
+		}
+	}
+}
