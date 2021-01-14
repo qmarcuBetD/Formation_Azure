@@ -99,6 +99,9 @@
 					"referenceName": "CnxLocalFiles",
 					"type": "LinkedServiceReference"
 				},
+				"folder": {
+					"name": "Sources"
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -150,6 +153,9 @@
 				"linkedServiceName": {
 					"referenceName": "CnxLocalFiles",
 					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Sources"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -211,6 +217,9 @@
 					"referenceName": "CnxLocalFiles",
 					"type": "LinkedServiceReference"
 				},
+				"folder": {
+					"name": "Sources"
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -254,6 +263,9 @@
 				"linkedServiceName": {
 					"referenceName": "CnxLocalFiles",
 					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Sources"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -310,6 +322,9 @@
 				"linkedServiceName": {
 					"referenceName": "CnxLocalFiles",
 					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Sources"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
