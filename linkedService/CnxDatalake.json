@@ -1,0 +1,13 @@
+{
+	"name": "CnxDatalake",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDataLakeStore",
+		"typeProperties": {
+			"dataLakeStoreUri": "https://formationazureqma.azuredatalakestore.net/webhdfs/v1",
+			"tenant": "544fe47f-5772-488f-81a9-fa9de607ecfa",
+			"subscriptionId": "32ad602f-d364-45c5-ab7f-b8e199af2da0",
+			"resourceGroupName": "rg-BDU_EcoleDeLaData"
+		}
+	}
+}
